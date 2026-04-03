@@ -1,0 +1,3 @@
+[submodule "niyah-engine-ref"]
+	path = niyah-engine-ref
+	url = https://github.com/Grar00t/niyah-engine.git
