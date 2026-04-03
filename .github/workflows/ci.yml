@@ -1,0 +1,12 @@
+name: Logic Proof CI
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: gcc logic_proof.c -o logic_proof -lm
+      - run: ./logic_proof
+      - run: echo "Run 1" && ./logic_proof | grep "Core says" > r1.txt
+      - run: echo "Run 2" && ./logic_proof | grep "Core says" > r2.txt
+      - run: diff r1.txt r2.txt && echo "DETERMINISM VERIFIED"
